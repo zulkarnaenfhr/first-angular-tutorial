@@ -1,0 +1,51 @@
+<div>
+  <h1>
+    Halo Semuanya, masuk ke homepage.
+  </h1>
+
+  <p>Perkenalkan nama saya {{Nama}}. </p>
+
+  <div *ngFor="let member of members">
+    <div class="Member-Components">
+      <div style="display: flex;">
+        <p>
+          {{member.npm}}
+        </p>
+        <p style="margin-left: 20px;">
+          {{member.name}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p [ngClass]="isActive ? 'activeText' : 'inactiveText'">Fahri Izzuddin Zulkarnaen</p>
+
+
+    <p *ngIf="isActive; else notActive">Text is Active</p>
+
+    <ng-template #notActive>
+      Text is not active
+    </ng-template>
+
+    <button (click)="toggleIsActive()">
+      {{isActive ? 'Change to Inactive': 'Change to Active'}}
+    </button>
+
+    <h1>percobaan form</h1>
+
+    <div>
+
+
+      <form #userPost="ngForm" (ngSubmit)="onFormSubmit(userPost.value)">
+        <input type="text" name="name" placeholder="input name" ngModel>
+        <input type="text" name="npm" placeholder="input npm" ngModel>
+        <input type="text" name="kota" placeholder="input kota" ngModel>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+
+  </div>
+
+</div>
